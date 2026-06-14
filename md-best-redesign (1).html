@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD BEST — Marine Engineering Services | Fort Lauderdale</title>
+<meta name="description" content="MD BEST — expert marine engineering services in Fort Lauderdale. Generators, Alfa-Laval, refrigeration, and full electrical service for yachts and vessels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a1722;
+    --ink-2:#0f2434;
+    --deep:#071019;
+    --brass:#c8a24a;
+    --brass-bright:#e3bd61;
+    --foam:#f4f1e9;
+    --foam-dim:#d9d4c6;
+    --steel:#7c8da0;
+    --line:rgba(200,162,74,.22);
+    --signal:#e8703a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--foam);
+    font-family:'Archivo',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* grain overlay */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  .mono{font-family:'Space Mono',monospace;letter-spacing:.04em}
+  .label{
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px;
+  }
+  .label::before{content:"";width:28px;height:1px;background:var(--brass)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;backdrop-filter:blur(8px);
+    background:linear-gradient(180deg,rgba(7,16,25,.92),rgba(7,16,25,0));
+    transition:background .3s;
+  }
+  nav.solid{background:rgba(7,16,25,.96);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:baseline;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;letter-spacing:.02em}
+  .brand b{color:var(--brass)}
+  .brand span{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--steel);text-transform:uppercase}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--foam-dim);text-decoration:none;font-size:.82rem;letter-spacing:.06em;transition:color .2s}
+  .nav-links a:hover{color:var(--brass)}
+  .nav-cta{
+    border:1px solid var(--brass);color:var(--brass);padding:9px 18px;border-radius:2px;
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--brass);color:var(--ink)!important}
+  @media(max-width:780px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- HERO ---------- */
+  header{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    background:
+      radial-gradient(120% 90% at 80% 10%,rgba(15,36,52,.9),transparent 60%),
+      radial-gradient(90% 80% at 0% 100%,rgba(200,162,74,.07),transparent 55%),
+      linear-gradient(160deg,var(--deep),var(--ink) 60%,var(--ink-2));
+    overflow:hidden;
+  }
+  /* sonar rings */
+  .sonar{position:absolute;right:-10%;top:50%;transform:translateY(-50%);width:760px;height:760px;opacity:.5;pointer-events:none}
+  .sonar div{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%;animation:pulse 7s ease-out infinite}
+  .sonar div:nth-child(2){inset:18%;animation-delay:.6s}
+  .sonar div:nth-child(3){inset:36%;animation-delay:1.2s;border-color:rgba(200,162,74,.4)}
+  .sonar div:nth-child(4){inset:54%;animation-delay:1.8s}
+  @keyframes pulse{0%{transform:scale(.6);opacity:0}40%{opacity:.6}100%{transform:scale(1.05);opacity:0}}
+  .hero-grid{
+    position:absolute;inset:0;opacity:.4;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:60px 60px;mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent)
+  }
+  .hero-inner{position:relative;z-index:2;padding-top:90px}
+  .hero-coords{margin-bottom:26px;opacity:0;animation:rise .8s .1s forwards}
+  h1{
+    font-family:'Fraunces',serif;font-weight:600;line-height:.96;
+    font-size:clamp(3.2rem,9vw,7.2rem);letter-spacing:-.01em;margin:14px 0 8px;
+  }
+  h1 em{font-style:italic;color:var(--brass);font-weight:500}
+  .hero-sub{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--foam-dim);max-width:560px;margin:22px 0 38px;font-weight:400}
+  .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+  .tag{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--line);color:var(--steel);padding:7px 13px;border-radius:2px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn-primary{
+    background:var(--brass);color:var(--ink);text-decoration:none;font-weight:700;
+    padding:16px 30px;border-radius:2px;font-size:.95rem;letter-spacing:.02em;
+    display:inline-flex;align-items:center;gap:10px;transition:all .25s;
+    box-shadow:0 10px 30px -8px rgba(200,162,74,.5);
+  }
+  .btn-primary:hover{background:var(--brass-bright);transform:translateY(-2px)}
+  .btn-ghost{color:var(--foam);text-decoration:none;font-family:'Space Mono',monospace;
+    font-size:.85rem;letter-spacing:.08em;border-bottom:1px solid var(--brass);padding-bottom:3px}
+  .hero-inner>*{opacity:0;animation:rise .8s forwards}
+  .hero-inner>*:nth-child(2){animation-delay:.2s}
+  .hero-inner>*:nth-child(3){animation-delay:.32s}
+  .hero-inner>*:nth-child(4){animation-delay:.44s}
+  .hero-inner>*:nth-child(5){animation-delay:.56s}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--deep);overflow:hidden;padding:16px 0}
+  .marquee-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 26s linear infinite;width:max-content}
+  .marquee-track span{font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel)}
+  .marquee-track span b{color:var(--brass)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:110px 0;position:relative}
+  .sec-head{max-width:680px;margin-bottom:60px}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;margin:18px 0 16px;letter-spacing:-.01em}
+  .sec-head p{color:var(--foam-dim);font-size:1.05rem}
+
+  /* services */
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  @media(max-width:780px){.svc-grid{grid-template-columns:1fr}}
+  .svc{background:var(--ink);padding:42px 38px;transition:background .3s;position:relative;min-height:240px;display:flex;flex-direction:column}
+  .svc:hover{background:var(--ink-2)}
+  .svc-num{font-family:'Space Mono',monospace;font-size:.75rem;color:var(--brass);letter-spacing:.1em}
+  .svc h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.65rem;margin:20px 0 12px}
+  .svc p{color:var(--steel);font-size:.95rem;flex-grow:1}
+  .svc-ico{position:absolute;top:38px;right:38px;width:34px;height:34px;stroke:var(--brass);stroke-width:1.4;fill:none;opacity:.8}
+
+  /* electrical detail strip */
+  .elec{background:var(--deep);border:1px solid var(--line);border-radius:4px;padding:48px;margin-top:1px;
+    display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center}
+  @media(max-width:780px){.elec{grid-template-columns:1fr;padding:34px}}
+  .elec h3{font-family:'Fraunces',serif;font-weight:500;font-size:2rem;line-height:1.1}
+  .elec h3 em{color:var(--brass);font-style:italic}
+  .elec-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  @media(max-width:480px){.elec-list{grid-template-columns:1fr}}
+  .elec-list div{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--foam-dim)}
+  .elec-list div::before{content:"›";color:var(--brass);font-weight:700;font-family:'Space Mono',monospace}
+
+  /* trust / stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;border-top:1px solid var(--line);padding-top:60px;margin-top:90px}
+  @media(max-width:780px){.stats{grid-template-columns:1fr 1fr;gap:40px 20px}}
+  .stat .n{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:600;color:var(--brass);line-height:1}
+  .stat .t{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-top:10px}
+
+  /* area */
+  .area{background:linear-gradient(135deg,var(--ink-2),var(--deep));border-radius:4px;border:1px solid var(--line);
+    padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;overflow:hidden}
+  @media(max-width:780px){.area{grid-template-columns:1fr;padding:38px}}
+  .area .mono-coord{font-family:'Space Mono',monospace;color:var(--brass);font-size:.8rem;letter-spacing:.1em}
+  .area h2{font-family:'Fraunces',serif;font-weight:500;font-size:2.4rem;margin:14px 0 18px;line-height:1.05}
+  .area p{color:var(--foam-dim)}
+  .compass{width:100%;max-width:280px;margin:0 auto;display:block}
+  .compass circle,.compass line,.compass path{stroke:var(--brass);fill:none;stroke-width:1}
+  .compass .needle{fill:var(--signal);stroke:none}
+  .compass text{fill:var(--steel);font-family:'Space Mono',monospace;font-size:11px}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--deep);border-top:1px solid var(--line)}
+  .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+  @media(max-width:780px){.contact-grid{grid-template-columns:1fr}}
+  .contact h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.02;margin:18px 0}
+  .contact h2 em{color:var(--brass);font-style:italic}
+  .contact-lead{color:var(--foam-dim);max-width:440px;margin-bottom:36px}
+  .contact-card{border:1px solid var(--line);border-radius:4px;background:var(--ink);overflow:hidden}
+  .crow{display:flex;align-items:center;gap:18px;padding:22px 26px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--foam);transition:background .25s}
+  .crow:last-child{border-bottom:none}
+  .crow:hover{background:var(--ink-2)}
+  .crow .ci{width:42px;height:42px;flex-shrink:0;border:1px solid var(--line);border-radius:2px;display:grid;place-items:center;color:var(--brass)}
+  .crow .ci svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.6;fill:none}
+  .crow .cl{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+  .crow .cv{font-size:1.05rem;font-weight:500;margin-top:2px}
+  .crow .arr{margin-left:auto;color:var(--steel);transition:transform .25s,color .25s}
+  .crow:hover .arr{transform:translateX(4px);color:var(--brass)}
+  .wa{background:#1f3b2f}
+  .wa .ci{color:#5fd07f;border-color:rgba(95,208,127,.3)}
+
+  footer{padding:46px 0;border-top:1px solid var(--line);background:var(--ink)}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .mono{font-size:.74rem;color:var(--steel);letter-spacing:.08em}
+  .foot a{color:var(--brass);text-decoration:none}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="brand">MD&nbsp;<b>BEST</b> <span>est. marine eng.</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#electrical">Electrical</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact" class="nav-cta">Request Service</a>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-grid"></div>
+  <div class="sonar"><div></div><div></div><div></div><div></div></div>
+  <div class="wrap hero-inner">
+    <div class="hero-coords mono label">Fort Lauderdale · FL · 26.12°N 80.14°W</div>
+    <h1>Marine engineering,<br><em>done right</em> — onboard.</h1>
+    <p class="hero-sub">Generators, Alfa-Laval systems, refrigeration and full electrical service for yachts and vessels. Mobile diagnostics and repair, dockside.</p>
+    <div class="hero-tags">
+      <span class="tag">All Generator Brands</span>
+      <span class="tag">Alfa-Laval</span>
+      <span class="tag">AC &amp; Refrigeration</span>
+      <span class="tag">Electrical Survey</span>
+      <span class="tag">Megger Testing</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/message/NLV64F6AX6MEB1" target="_blank" rel="noopener">
+        Message on WhatsApp
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn-ghost" href="tel:+19545482817">or call Mike → 954-548-2817</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Troubleshooting <b>/</b></span><span>Refitting <b>/</b></span><span>New Installation <b>/</b></span><span>Megger Test <b>/</b></span><span>Ground Fault Finding <b>/</b></span><span>Generator Service <b>/</b></span><span>Alfa-Laval <b>/</b></span><span>Refrigeration <b>/</b></span>
+    <span>Troubleshooting <b>/</b></span><span>Refitting <b>/</b></span><span>New Installation <b>/</b></span><span>Megger Test <b>/</b></span><span>Ground Fault Finding <b>/</b></span><span>Generator Service <b>/</b></span><span>Alfa-Laval <b>/</b></span><span>Refrigeration <b>/</b></span>
+  </div>
+</div>
+
+<section id="services" class="wrap">
+  <div class="sec-head reveal">
+    <span class="label">What we service</span>
+    <h2>Four systems. One engineer who knows them cold.</h2>
+    <p>From the engine room to the galley — diagnosis, repair, and installation across the systems that keep a vessel running.</p>
+  </div>
+
+  <div class="svc-grid reveal">
+    <div class="svc">
+      <span class="svc-num">01</span>
+      <svg class="svc-ico" viewBox="0 0 24 24"><path d="M4 14h4l2-6 4 12 2-6h4"/></svg>
+      <h3>Generators</h3>
+      <p>Service, repair and overhaul of all major generator brands. Load testing, fault diagnosis, and routine maintenance to keep power reliable at sea and at dock.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-num">02</span>
+      <svg class="svc-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+      <h3>Alfa-Laval</h3>
+      <p>Specialist servicing of Alfa-Laval separators - full service: bowl cleaning, seal replacement, calibration and performance restoration.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-num">03</span>
+      <svg class="svc-ico" viewBox="0 0 24 24"><path d="M5 12h14M9 6v12M15 6v12"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+      <h3>Air Conditioning &amp; Refrigeration</h3>
+      <p>Diagnosis and repair of marine AC and refrigeration units. Compressor service, gas charging, leak detection and full system commissioning.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-num">04</span>
+      <svg class="svc-ico" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+      <h3>Full Electrical Service</h3>
+      <p>Complete electrical work — from a single fault to a full rewire. Surveys, refitting, new installations and certified testing. Detail below.</p>
+    </div>
+  </div>
+
+  <div id="electrical" class="elec reveal">
+    <div>
+      <span class="label">Electrical division</span>
+      <h3>The whole electrical system, <em>handled.</em></h3>
+    </div>
+    <div class="elec-list">
+      <div>Fault troubleshooting</div>
+      <div>Electrical survey &amp; check</div>
+      <div>Refitting</div>
+      <div>New installation</div>
+      <div>Megger / insulation testing</div>
+      <div>Ground fault finding</div>
+    </div>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="n">All</div><div class="t">Generator Brands</div></div>
+    <div class="stat"><div class="n">24/7</div><div class="t">Dockside Response*</div></div>
+    <div class="stat"><div class="n">4</div><div class="t">Core Disciplines</div></div>
+    <div class="stat"><div class="n">FL</div><div class="t">Fort Lauderdale Based</div></div>
+  </div>
+</section>
+
+<section id="area" class="wrap">
+  <div class="area reveal">
+    <div>
+      <span class="mono-coord">26.1224° N · 80.1373° W</span>
+      <h2>Based in Fort Lauderdale.<br>Mobile to your dock.</h2>
+      <p>Serving the yachting capital of the world and surrounding marinas. We come to the vessel — diagnostics and repair carried out onboard, on your schedule.</p>
+    </div>
+    <svg class="compass" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80"/>
+      <circle cx="100" cy="100" r="62" stroke-dasharray="2 6"/>
+      <line x1="100" y1="20" x2="100" y2="180"/>
+      <line x1="20" y1="100" x2="180" y2="100"/>
+      <polygon class="needle" points="100,42 110,100 100,90 90,100"/>
+      <polygon points="100,158 110,100 100,110 90,100" fill="#7c8da0" stroke="none"/>
+      <text x="96" y="16">N</text><text x="184" y="104">E</text>
+      <text x="96" y="194">S</text><text x="6" y="104">W</text>
+    </svg>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="label">Get in touch</span>
+      <h2>Tell us what's<br><em>not working.</em></h2>
+      <p class="contact-lead">Send a message with your vessel, location and the issue — Mike will get back to you fast. WhatsApp is the quickest way to reach us.</p>
+    </div>
+    <div class="contact-card reveal">
+      <a class="crow wa" href="https://wa.me/message/NLV64F6AX6MEB1" target="_blank" rel="noopener">
+        <span class="ci"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg></span>
+        <span><span class="cl">WhatsApp · fastest</span><span class="cv">Message us</span></span>
+        <span class="arr">→</span>
+      </a>
+      <a class="crow" href="tel:+19545482817">
+        <span class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L8.1 9.5a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span>
+        <span><span class="cl">Phone · Mike</span><span class="cv">954-548-2817</span></span>
+        <span class="arr">→</span>
+      </a>
+      <a class="crow" href="mailto:mdbestengineer@gmail.com">
+        <span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <span><span class="cl">Email</span><span class="cv">mdbestengineer@gmail.com</span></span>
+        <span class="arr">→</span>
+      </a>
+      <a class="crow" href="https://www.facebook.com/MikeDimaBEST" target="_blank" rel="noopener">
+        <span class="ci"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span>
+        <span><span class="cl">Social</span><span class="cv">facebook.com/MikeDimaBEST</span></span>
+        <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap foot">
+      <div class="mono">MD BEST — Best Engineering Solutions Team · Fort Lauderdale, FL</div>
+      <div class="mono">© <span id="yr"></span> · Built better with <a href="#">care</a></div>
+    </div>
+  </footer>
+</section>
+
+<script>
+  // nav solid on scroll
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
